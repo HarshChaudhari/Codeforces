@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class A476 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int m=s.nextInt(),n=s.nextInt();
+		int p;
+		if(m%2==0)
+			p=m/2;
+		else
+			p=m/2+1;
+		if(n>=p && n<=m)
+			System.out.println(n);
+		else if(n>m)
+			System.out.println("-1");
+		else
+			System.out.println((int)(Math.ceil((double)p/n)*n));
+	}
+}
