@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+/**
+ * Author:-Harsh Chaudhari
+ * 
+ * College:-DA-IICT
+ */
+public class A588 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n=Integer.parseInt(s.nextLine()),min=Integer.MAX_VALUE,cost=0;
+		for(int i=0;i<n;i++){
+			int a = s.nextInt(),b = s.nextInt();
+			if(b<min)
+				min=b;
+			cost+=(min*a);
+			if((n-1)!=i)
+				s.nextLine();
+		}
+		System.out.println(cost);
+	}
+}
