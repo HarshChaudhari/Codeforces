@@ -1,0 +1,30 @@
+package Codeforces;
+import java.io.*;
+public class A119 {
+
+	public static void main(String[] args) throws IOException {
+		InputStreamReader s=new InputStreamReader(System.in);
+		PrintWriter p=new PrintWriter(System.out);
+		int a=s.read(),b=s.read(),n=s.read();
+		int l=0;
+		while(true){
+			if(l%2==0 && gcd(a,n)<=n)
+				n-=gcd(a,n);
+			else if(l%2!=0 && gcd(b,n)<=n)
+				n-=gcd(b,n);
+			if(l%2==0 && n<gcd(b,n)){
+				p.println("1");break;}
+			else if(l%2!=0 && n<gcd(a,n)){
+				p.println("0");break;}
+			l++;
+		}
+		p.close();
+	}
+
+	public static int gcd(int b, int n) {
+		if(n!=0)
+			return gcd(n,b%n);
+		else
+			return b;
+	}
+}
