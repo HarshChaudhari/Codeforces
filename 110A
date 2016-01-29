@@ -1,0 +1,23 @@
+import java.io.*;
+
+public class A110 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader s=new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter p=new PrintWriter(System.out);
+		String in=s.readLine();
+		long count=0,count1=0;
+		for(int a=0;a<in.length();a++)
+			if(in.charAt(a)=='4' || in.charAt(a)=='7')
+				count++;
+		String len=(""+count);
+		for(int a=0;a<len.length();a++)
+			if(len.charAt(a)=='4' || len.charAt(a)=='7')
+				count1++;
+		if(count1==len.length())
+			p.println("YES");
+		else
+			p.println("NO");
+		p.close();
+	}
+}
