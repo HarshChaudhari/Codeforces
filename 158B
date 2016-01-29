@@ -1,0 +1,41 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=Integer.parseInt(s.nextLine());
+		int countnum[]=new int[4];
+		while(n-->0){
+			int k=s.nextInt();
+			countnum[k-1]++;
+		}
+		int m=countnum[3]+Math.min(countnum[0], countnum[2])+countnum[1]/2;
+		//System.out.println(m+" "+countnum[0]+" "+countnum[1]+" "+countnum[2]);
+		int l=countnum[0];
+		if(countnum[0]!=0 && countnum[2]!=0){
+		countnum[0]-=Math.min(countnum[0], countnum[2]);
+		countnum[2]-=Math.min(l, countnum[2]);
+		}
+		if(countnum[2]==0){
+			m+=(countnum[0]/4);
+			countnum[0]=countnum[0]%4;
+		}
+		if(countnum[1]%2==0)
+			countnum[1]=0;
+		else
+			countnum[1]=1;
+		if(countnum[1]==1)
+		{	
+			m++;
+			countnum[1]=0;
+			countnum[0]-=2;
+		}
+		if(countnum[0]<0)
+			countnum[0]=0;
+		if(countnum[0]<=4 && countnum[0]>0){
+			m++;countnum[0]=0;}
+		//System.out.println(m+" "+countnum[0]+" "+countnum[1]+" "+countnum[2]);
+		System.out.println(m+countnum[0]+countnum[1]+countnum[2]);
+	}
+}
