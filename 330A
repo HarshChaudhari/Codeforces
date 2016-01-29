@@ -1,0 +1,32 @@
+import java.io.*;
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader s=new BufferedReader(new InputStreamReader(System.in));
+		String op[]=s.readLine().split(" ");
+		int count=0,count1=0,m=Integer.parseInt(op[0]),n=Integer.parseInt(op[1]);
+		String[] in=new String[m];
+		String[] in1=new String[n];
+		for(int i=0;i<n;i++)
+			in1[i]="";
+		for(int a=0;a<m;a++)
+			in[a]=s.readLine();
+		for(int i=0;i<m;i++){
+			if(!in[i].contains("S")){
+				count+=in[i].length();
+				count1++;
+			}
+			int y=0;
+			for(int x=0;x<in[i].length();x++){
+				in1[y]=in1[y]+in[i].charAt(x);
+				y++;
+			}
+		}
+		for(int i=0;i<n;i++){
+			if(!in1[i].contains("S")){
+				count+=(in1[i].length()-count1);
+			}
+		}
+		System.out.println(count);
+	}
+}
