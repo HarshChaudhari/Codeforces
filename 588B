@@ -1,0 +1,23 @@
+import java.util.*;
+
+/**
+ * Author:-Harsh Chaudhari
+ * 
+ * College:-DA-IICT
+ */
+public class B588 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		long n = s.nextLong(),ans=1;
+		for (long p=2; p*p<=n; p++){
+	       if(n%p==0)
+	    	   ans*=p;
+	       while(n%p==0)
+	    	   n/=p;
+	    }
+		if(n>1)
+			ans*=n;
+		System.out.println(ans);
+	}
+}
