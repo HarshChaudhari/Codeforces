@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int count1=0,count2=0;
+		int in[]=new int[128];
+		in['Q']=9;in['R']=5;in['B']=3;in['N']=3;in['P']=1;
+		in['q']=9;in['r']=5;in['b']=3;in['n']=3;in['p']=1;
+		for(int i=0;i<8;i++){
+			String q=s.nextLine();
+			for(int j=0;j<8;j++){
+				if(in[q.charAt(j)]!=0 && q.charAt(j)<96)
+					count1+=in[q.charAt(j)];
+				else if(in[q.charAt(j)]!=0 && q.charAt(j)>96)
+					count2+=in[q.charAt(j)];
+			}
+		}
+		if(count1>count2)
+			System.out.println("White");
+		else if(count1<count2)
+			System.out.println("Black");
+		else
+			System.out.println("Draw");
+	}
+
+}
