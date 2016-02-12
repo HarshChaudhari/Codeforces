@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+/**
+ * Author:-Harsh Chaudhari
+ * 
+ * College:-DA-IICT
+ */
+public class B622 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		String in[]= s.nextLine().split(":");
+		int hr=Integer.parseInt(in[0]),min=Integer.parseInt(in[1]);
+		int k=s.nextInt();
+		int hr1=k/60,min1=k-hr1*60;
+		if(min+min1>59){
+			min=(min+min1)%60;
+			if(hr+1>23)
+				hr=0;
+			else
+				hr++;
+		}
+		else{
+			min+=min1;
+		}
+		if(hr+hr1>23){
+			hr=(hr+hr1)%24;
+		}
+		else
+			hr+=hr1;
+		String st="";
+		//System.out.println(hr+" "+min);
+		if(hr<10)
+			st+=("0"+hr);
+		else
+			st+=(""+hr);
+		st+=":";
+		if(min<10)
+			st+=("0"+min);
+		else
+			st+=(""+min);
+		System.out.println(st);
+	}
+
+}
+
