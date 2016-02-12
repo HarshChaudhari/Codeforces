@@ -1,0 +1,11 @@
+from fractions import Fraction
+from fractions import gcd
+t,w,b = map(int,input().split())
+x=gcd(w,b)
+lcm=(w*b)//x
+v1=t//lcm
+v1=v1*min(b,w)+min(min(b,w)-1,t-lcm*v1)
+l=gcd(t,v1)
+v1//=l
+t//=l
+print("%d/%d"%(v1,t))
