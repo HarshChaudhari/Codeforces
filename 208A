@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		String in=s.nextLine();
+		in=in.replaceFirst("WUB", " ");
+		in=in.replaceAll("WUB", " ");
+		int l=0;
+		if(in.charAt(in.length()-1)!=' ')
+			l=1;
+		int t=0;
+		while(in.charAt(t)==' ')
+			t++;
+		for(int a=t;a<in.length()-1;a++){
+			if(in.charAt(a)==in.charAt(a+1) && in.charAt(a)==' ')
+				continue;
+			System.out.print(in.charAt(a));
+		}
+		if(l==1)
+			System.out.print(in.charAt(in.length()-1));
+		System.out.println();
+	}
+}
