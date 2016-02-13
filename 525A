@@ -1,0 +1,30 @@
+import java.util.*;
+
+/**
+ * Author:-Harsh Chaudhari
+ * 
+ * College:-DA-IICT
+ */
+public class A525 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = Integer.parseInt(s.nextLine());
+		String in = s.nextLine();
+		int key[] = new int[26];
+		int count=0;
+		for(int i=0;i<(2*n-2);i++){
+			if(i%2==0)
+				key[in.charAt(i)-97]++;
+			else{
+				if(key[(char)(in.charAt(i)+32)-97]>0)
+					key[(char)(in.charAt(i)+32)-97]--;
+				else
+					count++;
+			}
+		}
+		System.out.println(count);
+
+	}
+
+}
