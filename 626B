@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class B626 {
+
+	public static void main(String[] args) {
+		Scanner s =new Scanner(System.in);
+		int n = Integer.parseInt(s.nextLine());
+		int noB=0,noR=0,noG=0;
+		String st = s.nextLine();
+		for(int i=0;i<n;i++){
+			char t = st.charAt(i);
+			switch(t){
+			case 'R':
+				noR++;
+				break;
+			case 'B':
+				noB++;
+				break;
+			case 'G':
+				noG++;
+				break;
+			}
+		}
+		String op = "";
+		if((noR>=1 && noB>=1 && noG>=1) || (noR>=2 && noB>=2 && noG==0) || (noG>=2 && noB>=2 && noR==0) || (noR>=2 && noG>=2 && noB==0))
+			op="BGR";
+		else if((noB>=1 && noR==0 && noG==0) || (noG==1 && noR==1 && noB==0))
+			op="B";
+		else if((noR>=1 && noB==0 && noG==0) || (noG==1 && noB==1 && noR==0))
+			op="R";
+		else if((noG>=1 && noB==0 && noR==0) || (noR==1 && noB==1 && noG==0))
+			op="G";
+		else if((noG!=0 && noG%2==0 && noB%2!=0 && noR==0)  || (noG>=2 && noR>=1 && noB==0)   || (noG>=2 && noB>=1 && noR==0))
+			op="BR";
+		else if((noG!=0 && noG%2==0 && noR%2!=0 && noB==0))
+			op="BR";
+		else if((noB!=0 && noB%2==0 && noR%2!=0 && noG==0)  || (noB>=2 && noG>=1 && noR==0)   || (noB>=2 && noR>=1 && noG==0))
+			op="GR";
+		else if((noB!=0 && noB%2==0 && noG%2!=0 && noR==0))
+			op="GR";
+		else if((noR!=0 && noR%2==0 && noB%2!=0 && noG==0)  || (noR>=2 && noG>=1 && noB==0)   || (noR>=2 && noB>=1 && noG==0))
+			op="BG";
+		else if((noR!=0 && noR%2==0 && noG%2!=0 && noB==0))
+			op="BG";
+		System.out.println(op);
+	}
+
+}
