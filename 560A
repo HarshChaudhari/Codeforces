@@ -1,0 +1,28 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class A560 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader s=new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter p=new PrintWriter(System.out);
+		int n=Integer.parseInt(s.readLine());
+		String[] in=s.readLine().split(" ");
+		int in1[]=new int[n];
+		int min=Integer.MAX_VALUE;
+		for(int a=0;a<n;a++){
+			in1[a]=Integer.parseInt(in[a]);
+			if(min>in1[a])
+				min=in1[a];
+		}
+		if(min==1)
+			p.println("-1");
+		else
+			p.println("1");
+		p.close();
+		
+	}
+
+}
