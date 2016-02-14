@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.Arrays;
+public class Main {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader s=new BufferedReader(new InputStreamReader(System.in));
+			String i[]=s.readLine().split(" ");
+			int k=Integer.parseInt(i[0]),n=Integer.parseInt(i[1]);
+			String in[]=s.readLine().split(" ");
+			int st[]=new int[n];
+			for(int b=0;b<n;b++)
+				st[b]=Integer.parseInt(in[b]);
+			Arrays.sort(st);
+			int min=Integer.MAX_VALUE;
+			for(int a=0,c=k-1;a<=n-k;a++,c++){
+				if(st[c]-st[a]<min)
+					min=st[c]-st[a];
+			}
+			System.out.println(min);
+	}
+}
