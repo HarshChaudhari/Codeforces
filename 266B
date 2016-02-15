@@ -1,0 +1,32 @@
+import java.io.*;
+
+public class B266 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader s=new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter p=new PrintWriter(System.out);
+		String[] m=s.readLine().split(" ");
+		int n=Integer.parseInt(m[1]),k=Integer.parseInt(m[0]);
+		String st=s.readLine();
+		char in[]=st.toCharArray();
+		int in1[] = new int[k];
+		for(int a=0;a<n;a++){
+			for(int b=0;b<k-1;b++){
+			if(in[b]=='B' && in[b+1]=='G')
+				in1[b]=1;
+			}
+			for(int b=0;b<k-1;b++){
+				if(in1[b]==1){
+					char tmp=in[b];
+					in[b]=in[b+1];
+					in[b+1]=tmp;
+					in1[b]=0;
+				}
+			}
+		}
+		st=String.valueOf(in);
+		p.println(st);
+		p.close();
+	}
+
+}
