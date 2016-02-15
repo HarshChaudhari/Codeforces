@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=Integer.parseInt(s.nextLine());
+		String in=s.nextLine();
+		int no=0,nz=0;
+		for(int a=0;a<n;a++){
+			if(in.charAt(a)=='0')
+				nz++;
+			else
+				no++;
+		}
+		System.out.println(Math.abs(nz-no));
+	}
+
+}
