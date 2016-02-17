@@ -1,0 +1,51 @@
+import java.io.*;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader s=new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter p=new PrintWriter(System.out);
+		int n=Integer.parseInt(s.readLine()),q=0,count=0;
+		String in=(""+n);
+		for(int a=0;a<in.length();a++)
+			if(in.charAt(a)=='4' || in.charAt(a)=='7')
+				count++;
+		if(count==in.length()){
+			p.println("YES");q=1;
+		}
+		else{
+		for(int k=1;k<=in.length();k++){
+		double t=(Math.log10(((double)k*0.8+1))/(Math.log10(5)));
+		long l=(long)t;
+		if(t>l){
+			l++;
+		}
+		String i="";
+		long min=(2*((long)Math.pow(2, l-1)-1))+1;
+		long max=(2*((long)Math.pow(2, l)-1));
+		for(long a=0;a<l;a++){	
+			//System.out.println(min+" is min and is max="+max);
+			double avg=(double)(min+max)/2;
+			//System.out.println(avg);
+			if(k>avg)
+			{	
+				i+="7";
+				min=(long) avg;
+			}
+			else{
+				i+="4";
+				max=(long) avg;
+			}
+		}
+		if(n%Integer.parseInt(i)==0){	
+			p.println("YES");q=1;
+			break;
+		}
+	}
+	}	
+		if(q==0)
+			p.println("NO");
+		p.close();
+	}
+}
+
