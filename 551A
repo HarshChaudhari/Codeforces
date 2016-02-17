@@ -1,0 +1,36 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		while(true){
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int k=0;
+		int a[]=new int[n];
+		int in[]=new int[n];
+		for(int b=0;b<n;b++){
+			a[b]=s.nextInt();
+			in[b]=a[b];
+		}
+		if(n==1){
+			System.out.println("1");
+			break;
+		}
+		Arrays.sort(a);
+		for(int c=0;c<n;c++){
+			k=0;
+			for(int d=0;d<n;d++){
+			if(in[c]<a[d])
+				k++;
+		}
+			if(c!=n)
+				System.out.print(1+k+" ");
+			else
+				System.out.println(1+k);
+		}
+		break;
+	}
+	}
+}
