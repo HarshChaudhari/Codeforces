@@ -1,0 +1,26 @@
+import java.io.*;
+
+public class B554 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader s=new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter p=new PrintWriter(System.out);
+		int n=Integer.parseInt(s.readLine());
+		String in[]=new String[n];
+		int count[]=new int[n];
+		int max=0;
+		for(int a=0;a<n;a++)
+			in[a]=s.readLine();
+		for(int a=0;a<n;a++){
+			for(int b=0;b<a;b++){
+				if(in[a].equals(in[b]))
+					count[a]++;
+			}
+			if(max<count[a])
+				max=count[a];
+		}
+		p.println(max+1);
+		p.close();
+	}
+
+}
