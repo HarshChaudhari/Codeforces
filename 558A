@@ -1,0 +1,79 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int a[]=new int[n];
+        int b[]=new int[n];
+        int c[]=new int[n];
+        int d[]=new int[n];
+        int i=0,j=0;
+        while(n-->0){
+            int k=s.nextInt(),l=s.nextInt();
+            if(k>0){
+                a[i]=k;
+                b[i]=l;
+                i++;
+            }
+            else{
+                c[j]=k;
+                d[j]=l;
+                j++;
+            }
+        }
+        //System.out.println(i+" "+j);
+        for(int x=0;x<i-1;x++){
+            for(int y=0;y<i-1;y++){
+                if(a[y]>a[y+1]){
+                    int tmp=a[y];
+                    a[y]=a[y+1];
+                    a[y+1]=tmp;
+                    tmp=b[y];
+                    b[y]=b[y+1];
+                    b[y+1]=tmp;
+                }
+            }
+        }
+        for(int x=0;x<j-1;x++){
+            for(int y=0;y<j-1;y++){
+                if(c[y]<c[y+1]){
+                    int tmp=c[y];
+                    c[y]=c[y+1];
+                    c[y+1]=tmp;
+                    tmp=d[y];
+                    d[y]=d[y+1];
+                    d[y+1]=tmp;
+                }
+            }
+        }
+        long sum=0;
+        if(Math.abs(i-j)<=1){
+            for(int x=0;x<i;x++){
+                sum+=b[x];
+            }
+            for(int x=0;x<j;x++){
+                sum+=d[x];
+            }
+        }
+        else if(i>j){
+            //System.out.println("i>j");
+            for(int x=0;x<j+1;x++)
+                sum+=b[x];
+            for(int x=0;x<j;x++)
+                sum+=d[x];
+        }
+        else
+        {   //System.out.println("i<j");
+            for(int x=0;x<i+1;x++)
+                sum+=d[x];
+            for(int x=0;x<i;x++)
+                sum+=b[x];
+        }
+        System.out.println(sum);
+    }
+
+}
+
