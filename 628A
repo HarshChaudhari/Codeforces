@@ -1,0 +1,17 @@
+n,b,p=map(int,input().split())
+prevOdd=0
+if(n%2==0):
+	prevOdd=1;
+i,bot=n,0
+while(i!=1):
+	if(i%2==0):
+		prevOdd=0;
+		i=i//2
+		bot+=i+2*i*b
+	else:
+		prevOdd=1
+		i=i//2
+		bot+=i+2*i*b
+	if(prevOdd==1):
+		i+=1
+print(bot,n*p)
