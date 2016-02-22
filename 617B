@@ -1,0 +1,18 @@
+n=int(input())
+a=list(map(int,input().split()))
+curr,last=0,0
+prod,count=1,0
+if(1 in a):
+	last=a.index(1)
+for i in range(0,n):
+	if(a[i]==1):
+		count+=1
+		if(i!=a.index(1)):
+			last=curr
+		curr=i
+		if(i!=a.index(1)):
+			prod*=(curr-last)
+if(count!=0):
+	print(prod)
+else:
+	print(0)
