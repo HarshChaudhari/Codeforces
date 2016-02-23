@@ -1,0 +1,19 @@
+a,b=map(int,input().split())
+c=0
+if(a==1 and b==1):
+	print(b)
+	c=1
+if(a%2==0 and c==0):
+	if(b>a/2):
+		print(b-1)
+	elif(b<a/2):
+		print(b+1)
+	else:
+		print(b+1)
+elif(c==0):
+	if(b>(a+1)/2):
+		print(b-1)
+	elif(b<(a+1)/2):
+		print(b+1)
+	else:
+		print(b-1)
