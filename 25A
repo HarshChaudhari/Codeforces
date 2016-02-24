@@ -1,0 +1,18 @@
+n=int(input())
+a=list(map(int,input().split()))
+var,op=-1,0
+if((a[0] & 1) and (a[1] & 1)):
+	var=1
+elif((a[0] & 1==0) and (a[1] & 1==0)):
+	var=0
+elif((a[0]%2!=0 and a[2]%2!=0) or (a[0]%2==0 and a[2]%2==0)):
+	op=1
+elif((a[1]%2!=0 and a[2]%2!=0) or (a[1]%2==0 and a[2]%2==0)):
+	op=0
+if(var==-1):
+	print(op+1)
+else:
+	for i in range(2,n):
+		if((a[i] & 1) !=var):
+			print(i+1)
+			break
