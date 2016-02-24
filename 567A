@@ -1,0 +1,15 @@
+n=int(input())
+a=list(map(int,input().split()))
+min1,max1=0,0
+for i in range(0,n-1):
+	if(i==0):
+		min1=abs(a[0]-a[1])
+		max1=abs(a[0]-a[n-1])
+	else:
+		min1=min(abs(a[i]-a[i+1]),abs(a[i-1]-a[i]))
+	if(a[i]*a[n-1]<0):
+		max1=max((a[n-1]-a[i],a[i]-a[0]))
+	else:
+		max1=max(abs(a[i]-a[n-1]),abs(a[0]-a[i]))
+	print(min1,max1)
+print(abs(a[n-2]-a[n-1]),abs(a[0]-a[n-1]))
