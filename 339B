@@ -1,0 +1,11 @@
+a,b=map(int,input().split())
+in1=list(map(int,input().split()))
+prev,count=1,0
+for i in range(0,b):
+	curr=in1[i]
+	if(curr>=prev):
+		count+=(curr-prev)
+	else:
+		count+=(a-prev+curr)
+	prev=curr
+print(count)
