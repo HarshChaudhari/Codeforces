@@ -1,0 +1,5 @@
+n,b,c,z=int(input()),input(),input(),0
+for i in range(0,n):
+	x,y=int(b[i]),int(c[i])
+	z+=min(abs(x-y),(abs(min(x,y)+10-max(x,y))))
+print(z)
