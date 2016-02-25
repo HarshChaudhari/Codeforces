@@ -1,0 +1,12 @@
+n=int(input())
+a=list(map(int,input().split()))
+min,max,count=a[0],a[0],0
+for i in range(0,n):
+	k=a[i]
+	if(k>max):
+		count+=1
+		max=k
+	elif(k<min):
+		count+=1
+		min=k
+print(count)
