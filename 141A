@@ -1,0 +1,22 @@
+a = list(input())
+b = list(input())
+c = list(input())
+a.sort()
+b.sort()
+c.sort()
+x, y, k = 0, 0, 0
+for i in range(len(c)):
+    if len(c) == len(a) + len(b) :
+        if x < len(a) and c[i] == a[x]:
+            x += 1
+            continue
+        elif y < len(b) and c[i] == b[y]:
+            y += 1
+            continue
+        else:
+            k = 1
+            break
+    else:
+        k = 1
+        break
+print("YES" if k == 0 else "NO")
