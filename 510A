@@ -1,0 +1,15 @@
+a, b = map(int, input().split())
+for i in range(a):
+    if i % 4 == 0 or i % 4 == 2:
+        for j in range(b):
+            print("#", end='')
+        print()
+    elif i%4==3:
+        print("#",end='')
+        for j in range(b - 1):
+            print(".", end='')
+        print()
+    else:
+        for j in range(b - 1):
+            print(".", end='')
+        print("#")
