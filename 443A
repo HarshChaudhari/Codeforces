@@ -1,0 +1,9 @@
+n=input()
+count=0
+for i in range(len(n)):
+	if(count==26):
+		break
+	if(n[i]>='a' and n[i]<='z'):
+		count+=1
+		n=n.replace(n[i]," ")
+print(count)
