@@ -1,0 +1,15 @@
+s=input()
+c=0
+for i in range(0,len(s)):
+	if(s[i]=='h'):
+		for j in range(i+1,len(s)):
+			if(s[j]=='e'):
+				for k in range(j+1,len(s)):
+					if(s[k]=='l'):
+						for l in range(k+1,len(s)):
+							if(s[l]=='l'):
+								for m in range(l+1,len(s)):
+									if(s[m]=='o'):
+										c=1
+										break
+print("YES" if c==1 else "NO")
