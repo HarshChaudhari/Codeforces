@@ -1,0 +1,5 @@
+m,n=input(),input()
+str2=[]
+for i in range (len(m)):
+	str2.append(1 if m[i]!=n[i] else 0)
+print(''.join(map(str,str2)))
