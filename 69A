@@ -1,0 +1,8 @@
+n=int(input())
+x,y,z=0,0,0
+for i in range(0,n):
+	a2=list(map(int,input().split()))
+	x+=a2[0]
+	y+=a2[1]
+	z+=a2[2]
+print("YES" if(x==0 and y==0 and z==0) else "NO")
