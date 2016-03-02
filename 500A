@@ -1,0 +1,13 @@
+n=input().split()
+k=int(n[1])
+m=int(n[0])
+a=list(map(int,input().split()))
+c,x=0,0
+for i in range(0,m):
+	if(c+1>k):
+		break
+	elif(c+1==k):
+		x=1
+		break
+	c=a[c]+c
+print("YES" if x==1 else "NO")
