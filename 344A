@@ -1,0 +1,9 @@
+n=int(input())
+k=int(input())
+count=1
+for i in range(0,n-1):
+	m=int(input())
+	if(k!=m):
+		count+=1
+	k=m
+print(count)
