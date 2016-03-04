@@ -1,0 +1,17 @@
+n=int(input())
+a=list(map(int,input().split()))
+b=[]
+for i in range(0,n):
+	b.append(a[i])
+s,t=0,0
+b.sort()
+for i in range(0,n):
+	if(b[n-1]==a[i]):
+		t=i	
+		break
+for j in range(0,n):
+	if(b[0]==a[n-j-1]):
+		s=n-j-1
+		break
+k=t+n-s-1
+print(k if s>t else (k-1))
