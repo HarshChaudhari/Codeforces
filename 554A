@@ -1,0 +1,3 @@
+s=input()
+l=len(s)
+print(26*(l+1)-l)
