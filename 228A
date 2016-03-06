@@ -1,0 +1,15 @@
+s=input()
+a,b,c,d=s.split()
+a=s.count(a)
+b=s.count(b)
+c=s.count(c)
+d=s.count(d)
+sum=a+b+c+d
+if(sum==16):
+	print(3)
+elif(sum==10 or sum==8):
+	print(2)
+elif(sum==6):
+	print(1)
+else:
+	print(0)
