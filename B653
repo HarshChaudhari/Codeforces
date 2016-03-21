@@ -1,0 +1,48 @@
+import java.util.*;
+
+/**
+ * Author:-Harsh Chaudhari
+ * 
+ * College:-DA-IICT
+ */
+public class Main {
+	static Temp_B653 arr[]=new Temp_B653[26];
+	static int len=1,count=0,length;
+	public static void main(String[] args) {
+		Scanner s =new Scanner(System.in);
+		length=s.nextInt();
+		int t=s.nextInt();
+		s.nextLine();
+		while(t-->0){
+			String inp[]=s.nextLine().split(" ");
+			char c = inp[1].charAt(0);
+			if(arr[c-97]==null)
+				arr[c-97]=new Temp_B653();
+			arr[c-97].list.add(inp[0]);
+		}
+		countWays('a',len);
+		System.out.println(count);
+
+	}
+	public static void countWays(char c,int len){
+		int l=0;
+		if(!(arr[c-97]==null))
+			l=arr[c-97].list.size();
+		len++;
+		if(len<=length){
+			for(int i=0;i<l;i++){
+				String st = arr[c-97].list.get(i);
+				//System.out.println((c-97)+" "+arr[c-97].list.toString());
+				//System.out.println(st+" "+len);
+				countWays(st.charAt(0),len);
+			}
+			if(length==len || l==0)
+				count+=l;
+			//System.out.println(count+" is count.l is +"+l);
+		}
+	}
+}
+class Temp_B653 {
+	public ArrayList<String> list = new ArrayList<String>();
+	
+}
