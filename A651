@@ -1,0 +1,15 @@
+a, b = map(int, input().split())
+count,flag=0,0
+if(a==1 and b==1):
+	flag=1
+	print(0)
+while(flag==0 and a > 0 and b > 0):
+	count+=1
+	if(min(a,b)==a):
+		a+=1
+		b-=2
+	else:
+		b+=1
+		a-=2
+if(not flag):
+	print(count)
