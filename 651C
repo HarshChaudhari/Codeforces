@@ -1,0 +1,112 @@
+
+/**
+ * Author :- Harsh Chaudhari 
+ * College :- DAIICT
+ */
+import java.util.*;
+import java.io.*;
+
+public class C651 {
+	static Map<String,Integer> map = new HashMap<String,Integer>();
+	static Map<Integer,Integer> countX = new HashMap<Integer,Integer>();
+	static Map<Integer,Integer> countY = new HashMap<Integer,Integer>();
+	public static void main(String[] args) {
+		InputReader s = new InputReader(System.in);
+		OutputStream outputStream = System.out;
+		PrintWriter out = new PrintWriter(outputStream);
+		//Main code starts from here
+		int n=s.nextInt();
+		int same=0;
+		for(int i=0;i<n;i++){
+			int a=s.nextInt(),b=s.nextInt();
+			String tmp=a+" "+b;
+			if(!map.containsKey(tmp))
+				map.put(tmp,1);
+			else
+				map.put(tmp, map.get(tmp)+1);
+			if(!countX.containsKey(a))
+				countX.put(a, 1);
+			else
+				countX.put(a, countX.get(a)+1);
+			if(!countY.containsKey(b))
+				countY.put(b, 1);
+			else
+				countY.put(b, countY.get(b)+1);
+		}
+		long add=0;
+		//System.out.println(countX.values());
+		//System.out.println(countY.values());
+		for(Integer x:countX.values()){
+			if(x>=2)
+				//add+=nCr(x,2);
+				add+=((long)x*(x-1)/2);
+		}
+		for(Integer y:countY.values()){
+			if(y>=2)
+				//add+=nCr(y,2);
+				add+=((long)y*(y-1)/2);
+		}
+		for(Integer z:map.values()){
+			if(z>=2)
+				//add+=nCr(y,2);
+				add-=((long)z*(z-1)/2);
+		}
+		System.out.println(add);
+		//Ends here
+		out.close();
+	}
+	static long nCr(int n,int r){
+		long ans=1;
+		int k = Math.min(r, n-r);
+		for(int i=1;i<=k;i++){
+			ans*=(double)n/i;
+			n--;
+		}
+		return (long)ans;
+	}
+	static class InputReader {
+		public BufferedReader reader;
+		public StringTokenizer tokenizer;
+
+		public InputReader(InputStream inputstream) {
+			reader = new BufferedReader(new InputStreamReader(inputstream));
+			tokenizer = null;
+		}
+
+		public String nextLine() {
+			String fullLine = null;
+			while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+				try {
+					fullLine = reader.readLine();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+				return fullLine;
+			}
+			return fullLine;
+		}
+
+		public String next() {
+			while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+				try {
+					tokenizer = new StringTokenizer(reader.readLine());
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+			return tokenizer.nextToken();
+		}
+
+		public long nextLong() {
+			return Long.parseLong(next());
+		}
+
+		public int nextInt() {
+			return Integer.parseInt(next());
+		}
+
+		public double nextDouble() {
+			return Double.parseDouble(next());
+		}
+	}
+}
