@@ -1,0 +1,44 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class A550 {
+
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        String st=s.nextLine();
+        int len=st.length(),one=0,two=0;
+        char in[]=st.toCharArray();
+        int count2[]=new int[len],count1[]=new int[len];
+        for(int i=0;i<len-1;i++){
+        	if(in[i]=='A' && in[i+1]=='B')
+        		count1[one++]=i;
+        	if(in[i+1]=='A' && in[i]=='B')
+        		count2[two++]=i;
+        }
+        two--;
+        one--;
+        int c,d;
+        //System.out.println(Arrays.toString(count1)+" "+Arrays.toString(count2));
+        //System.out.println(one+" "+two);
+        boolean flag=true;
+        for(c=two,d=0;d<=one && c>=0;c--,d++){
+        	if(Math.abs(count2[c]-count1[d])>=2){
+        		flag=false;
+        		System.out.println("YES");
+        		break;
+        	}
+        }
+        if(flag){
+        	for(d=one,c=0;c<=two && d>=0;d--,c++){
+            	if(Math.abs(count2[c]-count1[d])>=2){
+            		flag=false;
+            		System.out.println("YES");
+            		break;
+            	}
+            }
+        }
+        if(flag)
+        	System.out.println("NO");
+    }
+
+}
