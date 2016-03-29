@@ -1,0 +1,48 @@
+import java.util.*;
+import java.io.*;
+
+public class B558 {
+
+	public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+		int t = Integer.parseInt(s.nextLine());
+		int arr[] = new int[t];
+		//int count[]=new int[1000001];
+		Map <Integer,Integer> min = new HashMap<Integer,Integer>();
+		Map <Integer,Integer> max = new HashMap<Integer,Integer>();
+		Map <Integer,Integer> count = new HashMap<Integer,Integer>();
+		int max1=-1,number=1,no=0;
+		for(int i=0;i<t;i++){
+			arr[i]=s.nextInt();
+			if(count.get(arr[i])==null)
+				count.put(arr[i], 1);
+			else
+				count.put(arr[i], count.get(arr[i])+1);
+			if(max1<count.get(arr[i])){
+				no=0;
+				max1=count.get(arr[i]);
+			}
+			else if(max1==count.get(arr[i]))
+				no++;
+			if(min.get(arr[i])==null)
+				min.put(arr[i], i+1);
+			if(max.get(arr[i])==null)
+				max.put(arr[i], i+1);
+			else
+				max.put(arr[i], i+1);
+		}
+		int min1=Integer.MAX_VALUE;
+		for(int x:count.keySet()){
+			if(max1==count.get(x)){
+				if(min1>(max.get(x)-min.get(x))){
+					min1=max.get(x)-min.get(x);
+					number=x;
+				}
+				no--;
+			}
+			if(no==-1)
+				break;
+		}
+		System.out.println(min.get(number)+" "+max.get(number));
+	}
+}
